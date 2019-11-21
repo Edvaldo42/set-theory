@@ -16,7 +16,9 @@ class SameFirstLetterBinaryRelation(BinaryRelation):
 
         Return True if the ordered pair belongs to the binary relation, otherwise, return False.
         """
-        pass
+        if x == y:
+            return True
+        return False
 
     def relation(self, S):
         """
@@ -27,4 +29,9 @@ class SameFirstLetterBinaryRelation(BinaryRelation):
 
         Return a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
         """
-        pass
+		tuplas=set([(x,y)for x in S for y in S])
+        primeiras_iguais=set()
+        for tupla in tuplas:
+			if self.contains_ordered_pair(tupla[0],tupla[1]):
+				primeiras_iguais.add(tupla)
+        return primeiras_iguais

@@ -16,7 +16,9 @@ class GreaterThanBinaryRelation(BinaryRelation):
 
         Return True if the first element of the ordered pair is greater than the second element, otherwise, return False.
         """
-        pass
+        if x > y:
+            return True
+        return False
 
     def relation(self, S):
         """
@@ -27,4 +29,9 @@ class GreaterThanBinaryRelation(BinaryRelation):
 
         Return a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
         """
-        pass
+       tuplas=set([(x,y)for x in S for y in S])
+       maiores_que=set()
+       for tupla in tuplas:
+			if self.contains_ordered_pair(tupla[0],tupla[1]):
+				maiores_que.add(tupla)
+        return maiores_que
