@@ -18,23 +18,23 @@ class SameParityBinaryRelation(BinaryRelation):
 
         Return True if the ordered pair belongs to the binary relation, otherwise, return False.
         """
-        if (x%2==0)&(y%2==0):
+        if x%2 == 0 and y%2 == 0:
             return True
-        return False
+        elif x%2 != 0 and y%2 != 0:
+            return True
+        else:
+            return False
         
     def relation(self, S):
         """
         This method returns a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
-
         Arguments:
         S - The input set.
-
         Return a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
         """
-
-        tuplas=set([(x,y) for x in S for y in S])
-		paridades=set()
+        tuplas=set([(x,y)for x in S for y in S])
+        resultado=set()
         for tupla in tuplas:
-                 if self.contains_ordered_pair(tupla[0],tupla[1]):
-                    paridades.add(tupla)
-        return paridades
+            if self.contains_ordered_pair(tupla[0],tupla[1]):
+                resultado.add(tupla)
+        return resultado
